@@ -1,0 +1,140 @@
+{
+	"name": "@optum/json-schema-editor",
+	"version": "1.0.0",
+	"description": "JsonSchema Editor React Control",
+	"repository": "https://github.com/optum/jsonschema-editor-react",
+	"license": "Apache 2.0",
+	"engines": {
+		"node": ">=10.18.0 <11 || >=12.14.0 <13 || >=13.5.0"
+	},
+	"scripts": {
+		"build": "rimraf dist && tsc -p tsconfig.build.json",
+		"test": "xo && nyc ava",
+		"lint": "xo --fix",
+		"clean": "rimraf coverage dist .nyc_output",
+		"storybook": "xo && start-storybook -p 6006",
+		"build-storybook": "build-storybook --docs -c .storybook -o docs",
+		"pre-release": "rimraf dist && tsc -p tsconfig.build.json && build-storybook --docs -c .storybook -o docs"
+	},
+	"main": "dist/index.js",
+	"files": [
+		"dist",
+		"src"
+	],
+	"keywords": [
+		"react"
+	],
+	"dependencies": {
+		"@chakra-ui/core": "^0.7.0",
+		"@emotion/core": "^10.0.28",
+		"@emotion/styled": "^10.0.27",
+		"ajv": "^6.12.0",
+		"emotion-theming": "^10.0.27",
+		"ramda": "^0.27.0",
+		"react": "^16.12.0",
+		"react-dom": "^16.12.0",
+		"react-icons": "^3.9.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.9.0",
+		"@babel/register": "^7.4.4",
+		"@storybook/addon-actions": "^5.3.18",
+		"@storybook/addon-console": "^1.2.1",
+		"@storybook/addon-docs": "^5.3.18",
+		"@storybook/addon-info": "^5.3.18",
+		"@storybook/addon-links": "^5.3.18",
+		"@storybook/addons": "^5.3.18",
+		"@storybook/preset-typescript": "1.2.2",
+		"@storybook/react": "^5.3.18",
+		"@types/enzyme": "^3.10.5",
+		"@types/node": "^13.7.0",
+		"@types/ramda": "^0.27.3",
+		"@types/react": "^16.9.23",
+		"@typescript-eslint/eslint-plugin": "^2.19.2",
+		"@typescript-eslint/parser": "^2.19.2",
+		"ava": "^3.5.0",
+		"babel-eslint": "^10.0.1",
+		"babel-loader": "^8.1.0",
+		"babel-preset-react-app": "^8.0.0",
+		"cssnano": "^4.1.10",
+		"dotenv": "^8.2.0",
+		"enzyme": "^3.9.0",
+		"enzyme-adapter-react-16": "^1.12.1",
+		"eslint": "^6.8.0",
+		"eslint-config-xo-react": "^0.23.0",
+		"eslint-config-xo-typescript": "^0.26.0",
+		"eslint-plugin-react": "^7.18.3",
+		"eslint-plugin-react-hooks": "^2.3.0",
+		"nyc": "^15.0.0",
+		"react-docgen-typescript-loader": "^3.7.2",
+		"rimraf": "^3.0.2",
+		"ts-loader": "^6.2.2",
+		"ts-node": "^8.6.2",
+		"ts-sinon": "^1.0.25",
+		"typescript": "^3.8.3",
+		"xo": "^0.26.1"
+	},
+	"xo": {
+		"envs": [
+			"node",
+			"browser"
+		],
+		"extends": [
+			"xo-react",
+			"xo-typescript"
+		],
+		"extensions": [
+			"ts"
+		],
+		"ignores": [
+			"docs/"
+		],
+		"prettier": true,
+		"semicolon": false,
+		"space": 4,
+		"rules": {
+			"capitalized-comments": 0,
+			"ava/no-ignored-test-files": 0
+		}
+	},
+	"nyc": {
+		"all": true,
+		"reporter": [
+			"lcov",
+			"text"
+		],
+		"extension": [
+			".ts",
+			".tsx"
+		],
+		"require": [
+			"ts-node/register"
+		],
+		"include": [
+			"src/**/*.ts",
+			"src/**/*.tsx"
+		]
+	},
+	"ava": {
+		"extensions": [
+			"ts",
+			"tsx",
+			"js"
+		],
+		"require": [
+			"./test/setup.js",
+			"ts-node/register"
+		],
+		"files": [
+			"!test/setup.js",
+			"test/*.ts",
+			"test/**/*.ts",
+			"test/*.tsx",
+			"test/**/*.tsx"
+		],
+		"cache": true,
+		"concurrency": 5,
+		"failFast": true,
+		"verbose": true
+	}
+}

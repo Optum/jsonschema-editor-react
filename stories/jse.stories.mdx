@@ -1,0 +1,161 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
+import JsonSchemaEditor from "../src";
+
+export const bad = {
+	type: "notvalid",
+	iwish: "doesnt matter"
+};
+
+export const readOnlyData = {
+	$schema: "http://json-schema.org/draft-07/schema",
+	$id: "#/io/knack/avro/item",
+	type: "object",
+	title: "Item",
+	description: "The schema for item info.",
+	required: ["id", "name"],
+	properties: {
+		id: {
+			$id: "#/string",
+			type: "string",
+			title: "string",
+			description: "The unique identifier of the item."
+		},
+		name: {
+			$id: "#/string",
+			type: "string",
+			title: "string",
+			description: "The display name of the item."
+		},
+		info: {
+			$id: "#/io/knack/avro/info",
+			type: "object",
+			title: "info",
+			description: "The info for the item.",
+			required: ["timestamp", "active"],
+			properties: {
+				timestamp: {
+					$id: "#/long",
+					type: "number",
+					title: "long",
+					description: "The info timestamp."
+				},
+				active: {
+					$id: "#/boolean",
+					type: "boolean",
+					title: "boolean",
+					description: "The info active flag"
+				},
+				notes: {
+					$id: "#/string",
+					type: "string",
+					title: "string",
+					description: "The display name of the item."
+				}
+			}
+		},
+		tags: {
+			$id: "#/array",
+			type: "array",
+			title: "array",
+			description: "Tags for grouping and filtering items.",
+			items: {
+				$id: "#/string",
+				type: "string",
+				title: "string",
+				description: ""
+			}
+		},
+		boxes: {
+			$id: "#/array",
+			type: "array",
+			title: "array",
+			description: "Boxes this item supports",
+			items: {
+				$id: "#/io/knack/avro/box/record",
+				type: "object",
+				title: "boxRecord",
+				description: "",
+				required: ["height", "width"],
+				properties: {
+					height: {
+						$id: "#/int",
+						type: "integer",
+						title: "int",
+						description: "The box height."
+					},
+					width: {
+						$id: "#/int",
+						type: "integer",
+						title: "int",
+						description: "The box width."
+					},
+					color: {
+						$id: "#/string",
+						type: "string",
+						title: "string",
+						description: "The box color."
+					}
+				}
+			}
+		}
+	}
+};
+
+export const printIt = schema => {
+	console.log(schema);
+};
+
+<Meta title="JsonSchemaEditor" component={JsonSchemaEditor} />
+
+# JsonSchemaEditor
+
+## Props
+
+| property       | type                               | description                                  | default               |
+| -------------- | ---------------------------------- | -------------------------------------------- | --------------------- |
+| data           | object                             | the initial data for the editor              | {}                    |
+| readOnly       | boolean                            | make editor read only                        | false                 |
+| onSchemaChange | callback (results: string) => void | callback method to capture changes to schema | required (no default) |
+| schemaRoot     | string                             | schemaRoot for \$id property                 | required (no default) |
+
+## Create New
+
+`JsonSchemaEditor` can be leveraged by creating new JsonSchema objects by not passing `data` prop.
+
+<Preview>
+	<Story name="no data">
+		<JsonSchemaEditor
+			schemaRoot="http://mycompany.com/root/"
+			onSchemaChange={printIt}
+		/>
+	</Story>
+</Preview>
+
+## Read only
+
+With `JsonSchemaEditor` readonly permission is applied by passing `readOnly` prop
+
+<Preview>
+	<Story name="read only">
+		<JsonSchemaEditor
+			schemaRoot="http://mycompany.com/root/"
+			data={readOnlyData}
+			readOnly
+			onSchemaChange={printIt}
+		/>
+	</Story>
+</Preview>
+
+## AJV Validation
+
+With `JsonSchemaEditor`, you are notified if schema passed in data in invalid.
+
+<Preview>
+	<Story name="invalid data">
+		<JsonSchemaEditor
+			schemaRoot="http://mycompany.com/root/"
+			data={bad}
+			onSchemaChange={printIt}
+		/>
+	</Story>
+</Preview>
