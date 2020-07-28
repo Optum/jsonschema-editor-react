@@ -1,0 +1,10 @@
+jsonschema-editor-react
+
+Copyright 2020 Optum
+
+Project Description:
+====================
+A react module for maintaining json schema. Built with Chakra-UI
+
+Author(s):
+Ryan Sites (@seesharpguy)
