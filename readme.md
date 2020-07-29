@@ -13,7 +13,7 @@
 
 ## Documentation
 
-Control documentation and demo can be viewed [here](https://github.com/pages/optum/jsonschema-editor-react/)
+Control documentation and demo can be viewed [here](https://optum.github.io/jsonschema-editor-react/)
 
 ## Install
 
