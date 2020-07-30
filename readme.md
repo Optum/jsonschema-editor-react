@@ -9,7 +9,23 @@
 <a href="https://github.com/pages/optum/jsonschema-editor-react/"><img src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg"></a>
 </p>
 
-> JsonSchemaEditor is a React component library that allows the easy generation of valid JsonSchema from a UI.
+## Description
+
+> JSON Schema is hypermedia ready, and ideal for annotating your existing JSON-based HTTP API. JSON Schema documents are identified by URIs, which can be used in HTTP Link headers, and inside JSON Schema documents to allow recursive definitions. - [json-schema.org](https://json-schema.org/)
+
+JsonSchemaEditor is a React component library that allows the easy generation of valid `Draft 07` JsonSchema from a UI,  so that it can be easily persisted in a schema management system.
+
+Benefits include:
+- Describes your existing data format(s).
+- Provides clear human- and machine- readable - documentation.
+- Validates data which is useful for:
+- Automated testing.
+- Ensuring quality of client submitted data.
+JSON Hyper-Schema
+Make any JSON format a hypermedia format with no constraints on document structure
+Allows use of URI Templates with instance data
+Describe client data for use with links using JSON Schema.
+Recognizes collections and collection items.
 
 ## Documentation
 
