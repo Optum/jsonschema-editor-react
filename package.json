@@ -1,6 +1,6 @@
 {
 	"name": "@optum/json-schema-editor",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "JsonSchema Editor React Control",
 	"repository": "https://github.com/optum/jsonschema-editor-react",
 	"license": "Apache 2.0",
