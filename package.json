@@ -1,6 +1,6 @@
 {
 	"name": "@optum/json-schema-editor",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "JsonSchema Editor React Control",
 	"repository": "https://github.com/optum/jsonschema-editor-react",
 	"license": "Apache 2.0",
@@ -15,6 +15,10 @@
 		"storybook": "xo && start-storybook -p 6006",
 		"build-storybook": "build-storybook --docs -c .storybook -o docs",
 		"pre-release": "rimraf dist && tsc -p tsconfig.build.json && build-storybook --docs -c .storybook -o docs"
+	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org"
 	},
 	"main": "dist/index.js",
 	"files": [
