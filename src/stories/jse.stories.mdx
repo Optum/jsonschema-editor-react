@@ -1,9 +1,9 @@
 import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
-import JsonSchemaEditor from "../src";
+import JsonSchemaEditor from "../index.tsx";
 
 export const bad = {
 	type: "notvalid",
-	iwish: "doesnt matter"
+	iwish: "doesnt matter",
 };
 
 export const readOnlyData = {
@@ -18,13 +18,13 @@ export const readOnlyData = {
 			$id: "#/string",
 			type: "string",
 			title: "string",
-			description: "The unique identifier of the item."
+			description: "The unique identifier of the item.",
 		},
 		name: {
 			$id: "#/string",
 			type: "string",
 			title: "string",
-			description: "The display name of the item."
+			description: "The display name of the item.",
 		},
 		info: {
 			$id: "#/io/knack/avro/info",
@@ -37,21 +37,21 @@ export const readOnlyData = {
 					$id: "#/long",
 					type: "number",
 					title: "long",
-					description: "The info timestamp."
+					description: "The info timestamp.",
 				},
 				active: {
 					$id: "#/boolean",
 					type: "boolean",
 					title: "boolean",
-					description: "The info active flag"
+					description: "The info active flag",
 				},
 				notes: {
 					$id: "#/string",
 					type: "string",
 					title: "string",
-					description: "The display name of the item."
-				}
-			}
+					description: "The display name of the item.",
+				},
+			},
 		},
 		tags: {
 			$id: "#/array",
@@ -62,8 +62,8 @@ export const readOnlyData = {
 				$id: "#/string",
 				type: "string",
 				title: "string",
-				description: ""
-			}
+				description: "",
+			},
 		},
 		boxes: {
 			$id: "#/array",
@@ -81,27 +81,27 @@ export const readOnlyData = {
 						$id: "#/int",
 						type: "integer",
 						title: "int",
-						description: "The box height."
+						description: "The box height.",
 					},
 					width: {
 						$id: "#/int",
 						type: "integer",
 						title: "int",
-						description: "The box width."
+						description: "The box width.",
 					},
 					color: {
 						$id: "#/string",
 						type: "string",
 						title: "string",
-						description: "The box color."
-					}
-				}
-			}
-		}
-	}
+						description: "The box color.",
+					},
+				},
+			},
+		},
+	},
 };
 
-export const printIt = schema => {
+export const printIt = (schema) => {
 	console.log(schema);
 };
 

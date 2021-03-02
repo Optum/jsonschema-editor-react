@@ -17,7 +17,7 @@ export const AdvancedSettings: React.FunctionComponent<AdvancedSettingsProps> = 
 
 	return (
 		<SchemaContext.Consumer>
-			{schema => {
+			{(schema) => {
 				const getComponent = (lens: string[]): JSX.Element | undefined => {
 					const data = schema.getDataByLens
 						? schema.getDataByLens(lens)

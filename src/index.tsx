@@ -62,7 +62,7 @@ const JsonSchemaEditor: React.FC<SchemaEditorProps> = (
 			data={props.data}
 		>
 			<SchemaContext.Consumer>
-				{schema => (
+				{(schema) => (
 					<>
 						{onSchemaChange(JSON.stringify(schema.jsonSchema))}
 						{schema.isValidSchema ? (

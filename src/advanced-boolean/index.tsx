@@ -16,7 +16,7 @@ export const AdvancedBoolean: React.FunctionComponent<AdvancedBooleanProps> = (
 
 	return (
 		<SchemaContext.Consumer>
-			{schema => {
+			{(schema) => {
 				const initial: JsonSchemaType = getDefaultSchema(
 					DataType.object,
 					schema.schemaRoot

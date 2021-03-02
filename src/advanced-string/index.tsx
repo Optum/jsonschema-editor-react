@@ -56,7 +56,7 @@ export const AdvancedString: React.FunctionComponent<SchemaObjectProps> = (
 
 	return (
 		<SchemaContext.Consumer>
-			{schema => {
+			{(schema) => {
 				const initial: JsonSchemaType = getDefaultSchema(
 					DataType.string,
 					schema.schemaRoot

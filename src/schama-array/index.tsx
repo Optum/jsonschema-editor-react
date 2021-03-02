@@ -26,14 +26,14 @@ export const SchemaArray: React.FunctionComponent<SchemaArrayProps> = (
 
 	const {items} = data
 
-	const {length} = lens.filter(name => name !== 'properties')
+	const {length} = lens.filter((name) => name !== 'properties')
 	const tagPaddingLeftStyle = {
 		paddingLeft: `${20 * (length + 1)}px`
 	}
 
 	return (
 		<SchemaContext.Consumer>
-			{schema => (
+			{(schema) => (
 				<>
 					<Flex
 						direction="row"

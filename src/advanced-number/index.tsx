@@ -55,7 +55,7 @@ export const AdvancedNumber: React.FunctionComponent<SchemaObjectProps> = (
 
 	return (
 		<SchemaContext.Consumer>
-			{schema => {
+			{(schema) => {
 				const initial: JsonSchemaType = getDefaultSchema(
 					DataType.number,
 					schema.schemaRoot

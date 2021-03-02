@@ -48,9 +48,6 @@ typings/
 # dotenv environment variables file
 .env
 
-# VS Code
-.vscode
-
 # OSX
 .DS_Store
 

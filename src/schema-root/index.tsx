@@ -24,7 +24,7 @@ export const SchemaRoot: React.FunctionComponent<SchemaArrayProps> = (
 
 	return (
 		<SchemaContext.Consumer>
-			{schema => (
+			{(schema) => (
 				<Flex direction="row" wrap="nowrap" mt={2} mr={5} {...props}>
 					<Input
 						isDisabled

@@ -24,7 +24,7 @@ export const DropPlus: React.FunctionComponent<DropPlusProps> = (
 
 	return (
 		<SchemaContext.Consumer>
-			{schema => (
+			{(schema) => (
 				<Popover trigger="hover">
 					<PopoverTrigger>
 						<IconButton

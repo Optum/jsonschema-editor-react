@@ -30,7 +30,7 @@ export const SchemaItem: React.FunctionComponent<SchemaItemProps> = (
 	const {name, data, lens, showAdvanced} = props
 
 	const item = data.properties[name]
-	const {length} = lens.filter(name => name !== 'properties')
+	const {length} = lens.filter((name) => name !== 'properties')
 	const tagPaddingLeftStyle = {
 		paddingLeft: `${20 * (length + 1)}px`
 	}
@@ -41,7 +41,7 @@ export const SchemaItem: React.FunctionComponent<SchemaItemProps> = (
 
 	return (
 		<SchemaContext.Consumer>
-			{schema => (
+			{(schema) => (
 				<>
 					<Flex
 						alignContent="space-evenly"
@@ -186,7 +186,7 @@ export const SchemaItem: React.FunctionComponent<SchemaItemProps> = (
 						</Tooltip>
 
 						{item.type === 'object' ? (
-							<DropPlus isDisabled={schema.isReadOnly!} lens={lens} />
+							<DropPlus isDisabled={schema.isReadOnly ?? false} lens={lens} />
 						) : (
 							<Tooltip
 								hasArrow

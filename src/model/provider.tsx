@@ -231,7 +231,9 @@ export const SchemaProvider: React.FunctionComponent<SchemaProviderProps> = (
 						)
 						const correctNewValue =
 							propType.type === 'number'
-								? newValue.map(s => (s === '' ? s : Number(s)))
+								? newValue.map((string) =>
+										string === '' ? string : Number(string)
+								  )
 								: newValue
 
 						newState = R.set(propertyLens, correctNewValue, state.schema)
