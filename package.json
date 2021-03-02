@@ -11,10 +11,9 @@
 		"build": "rimraf dist && tsc -p tsconfig.build.json",
 		"test": "xo && nyc ava",
 		"lint": "xo --fix",
-		"clean": "rimraf coverage dist .nyc_output",
+		"clean": "rimraf coverage dist docs .nyc_output",
 		"storybook": "xo && start-storybook -p 6006",
-		"build-storybook": "build-storybook --docs -c .storybook -o docs",
-		"pre-release": "rimraf dist && tsc -p tsconfig.build.json && build-storybook --docs -c .storybook -o docs"
+		"build-storybook": "rimraf dist docs && build-storybook --docs -o docs"
 	},
 	"publishConfig": {
 		"access": "public",

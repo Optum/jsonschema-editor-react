@@ -6,7 +6,7 @@
   <a href="https://github.com/xojs/xo"><img src="https://img.shields.io/badge/code_style-XO-5ed9c7.svg"></a>➕
   <a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"></a>➕
   <a href="https://chakra-ui.com/"><img src="https://img.shields.io/badge/built%20with-chakra--ui-green"></a>➕
-<a href="https://github.com/pages/optum/jsonschema-editor-react/"><img src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg"></a>
+<a href="https://optum.github.io/jsonschema-editor-react/"><img src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg"></a>
 </p>
 
 ## Description
@@ -72,6 +72,20 @@ export const Home = ({ data, contentSectionText }) => {
 jsonchema-editor-react is Copyright © 2020 Optum. It is free software and may be redistributed under the MIT license.
 
 ## Development
+
+### Commands
+
+> Run storybook
+
+```shell
+npm run storybook
+```
+
+> Create docs and build for release
+
+```shell
+npm run build-storybook
+```
 
 ### Commands
 
