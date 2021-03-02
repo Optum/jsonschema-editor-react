@@ -4,6 +4,10 @@ import { CSSReset, ThemeProvider } from "@chakra-ui/core";
 import '@storybook/addon-console';
 
 
+export const parameters = {
+  controls: { expanded: false },
+};
+
 const AppProvider = ({ children }) => {
   return (
     <ThemeProvider>

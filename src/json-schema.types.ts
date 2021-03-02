@@ -1,26 +1,27 @@
-type Defaults = string | [] | null
+type Defaults = string | any[] | null
 
 export interface JsonSchemaType {
-    $schema?: string
-    $id: string
-    type: string
-    title: string
-    description: string
-    default?: Defaults
-    examples?: Defaults
+	$schema?: string
+	$id: string
+	type: string
+	title: string
+	description: string
+	default?: Defaults
+	examples?: Defaults
 }
 
 // Todo: update in a2j
-export interface JsonSchemaProperties {
-    [x: string]: JsonSchemaType | JsonSchemaObject | JsonSchemaArray
-}
+export type JsonSchemaProperties = Record<
+	string,
+	JsonSchemaType | JsonSchemaObject | JsonSchemaArray
+>
 
 // Todo: update in a2j
 export interface JsonSchemaString extends JsonSchemaType {
-    format?: string
-    pattern?: string
-    minLength?: number
-    maxLength?: number
+	format?: string
+	pattern?: string
+	minLength?: number
+	maxLength?: number
 }
 
 export type JsonSchemaBoolean = JsonSchemaType
@@ -28,21 +29,21 @@ export type JsonSchemaInt = JsonSchemaType
 export type JsonSchemaNumber = JsonSchemaType
 
 export interface JsonSchemaRange extends JsonSchemaType {
-    minimum?: number
-    exclusiveMinimum?: number
-    maximum?: number
-    exclusiveMaximum?: number
+	minimum?: number
+	exclusiveMinimum?: number
+	maximum?: number
+	exclusiveMaximum?: number
 }
 
 export interface JsonSchemaEnum extends JsonSchemaType {
-    enum: string[]
+	enum: string[]
 }
 
 export interface JsonSchemaArray extends JsonSchemaType {
-    items: JsonSchemaType | JsonSchemaObject | JsonSchemaArray
+	items: JsonSchemaType | JsonSchemaObject | JsonSchemaArray
 }
 
 export interface JsonSchemaObject extends JsonSchemaType {
-    required: string[]
-    properties: JsonSchemaProperties
+	required: string[]
+	properties: JsonSchemaProperties
 }

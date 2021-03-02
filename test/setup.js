@@ -5,9 +5,9 @@ const EnzymeReactAdapter = require('enzyme-adapter-react-16')
 /* eslint-enable @typescript-eslint/no-var-requires */
 
 babelRegister({
-    ignore: ['node_modules/*', 'test/*']
+	ignore: ['node_modules/*', 'test/*']
 })
 
 Enzyme.configure({
-    adapter: new EnzymeReactAdapter()
+	adapter: new EnzymeReactAdapter()
 })

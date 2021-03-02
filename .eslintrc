@@ -1,0 +1,17 @@
+{
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"plugins": [
+	  "@typescript-eslint"
+	],
+	"extends": [
+	  "eslint:recommended",
+	  "plugin:@typescript-eslint/eslint-recommended",
+	  "plugin:@typescript-eslint/recommended"
+	],
+	"rules": {
+		"@typescript-eslint/consistent-type-assertions": 0,
+		"@typescript-eslint/no-explicit-any": 0,
+		"no-mixed-spaces-and-tabs": 0
+	}
+  }
