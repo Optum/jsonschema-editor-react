@@ -1,20 +1,13 @@
 {
 	"name": "@optum/json-schema-editor",
-	"version": "1.1.0",
+	"version": "2.0.1",
 	"description": "JsonSchema Editor React Control",
 	"repository": "https://github.com/optum/jsonschema-editor-react",
 	"license": "Apache 2.0",
 	"engines": {
 		"node": ">=10.18.0 <11 || >=12.14.0 <13 || >=13.5.0"
 	},
-	"scripts": {
-		"build": "rimraf dist && tsc -p tsconfig.build.json",
-		"test": "xo && nyc ava",
-		"lint": "xo --fix",
-		"clean": "rimraf coverage dist docs .nyc_output",
-		"storybook": "xo && start-storybook -p 6006",
-		"build-storybook": "rimraf dist docs && build-storybook --docs -o docs"
-	},
+	"source": "src/JsonSchemaEditor/index.ts",
 	"publishConfig": {
 		"access": "public",
 		"registry": "https://registry.npmjs.org"
@@ -26,127 +19,74 @@
 	"keywords": [
 		"react"
 	],
-	"dependencies": {
-		"@chakra-ui/core": "^0.7.0",
-		"@emotion/core": "^10.0.28",
-		"@emotion/styled": "^10.0.27",
-		"ajv": "^6.12.0",
-		"emotion-theming": "^10.0.27",
-		"ramda": "^0.27.0",
-		"react-icons": "^3.9.0"
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "microbundle --jsx React.createElement",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"storybook": "start-storybook -p 6006 -s docs",
+		"build-storybook": "rimraf docs && build-storybook --docs -o docs"
 	},
-	"peerDependencies": {
-		"react": "^17.0.0",
-		"react-dom": "^17.0.0"
-	},
-	"devDependencies": {
-		"@babel/core": "^7.13.8",
-		"@babel/preset-react": "^7.12.13",
-		"@babel/register": "^7.4.4",
-		"@storybook/addon-actions": "^6.1.20",
-		"@storybook/addon-essentials": "^6.1.20",
-		"@storybook/addon-links": "^6.1.20",
-		"@storybook/node-logger": "^6.1.20",
-		"@storybook/preset-create-react-app": "^3.1.6",
-		"@storybook/react": "^6.1.20",
-		"@storybook/addon-console": "^1.2.3",
-		"@storybook/addon-docs": "^6.1.20",
-		"@storybook/addon-info": "^5.3.21",
-		"@storybook/preset-typescript": "^3.0.0",
-		"@types/enzyme": "^3.10.5",
-		"@types/node": "^13.7.0",
-		"@types/ramda": "^0.27.3",
-		"@types/react": "^17.0.2",
-		"@typescript-eslint/eslint-plugin": "^4.0.0",
-		"@typescript-eslint/parser": "^4.0.0",
-		"ava": "^3.5.0",
-		"babel-eslint": "^10.0.1",
-		"babel-loader": "^8.1.0",
-		"cssnano": "^4.1.10",
-		"dotenv": "^8.2.0",
-		"enzyme": "^3.9.0",
-		"enzyme-adapter-react-16": "^1.12.1",
-		"eslint": "^7.21.0",
-		"eslint-config-xo-react": "^0.24.0",
-		"eslint-config-xo-typescript": "^0.38.0",
-		"eslint-plugin-react": "^7.22.0",
-		"eslint-plugin-react-hooks": "^4.2.0",
-		"nyc": "^15.0.0",
-		"react": "^17.0.0",
-		"react-docgen-typescript-loader": "^3.7.2",
-		"react-dom": "^17.0.0",
-		"react-scripts": "^4.0.0",
-		"rimraf": "^3.0.2",
-		"ts-loader": "^8.0.17",
-		"ts-node": "^9.1.1",
-		"ts-sinon": "^2.0.1",
-		"typescript": "^4.1.0",
-		"xo": "^0.38.2"
-	},
-	"xo": {
-		"envs": [
-			"node",
-			"browser"
-		],
-		"extends": [
-			"xo-react",
-			"xo-typescript"
-		],
-		"extensions": [
-			"ts"
-		],
-		"ignores": [
-			"docs/"
-		],
-		"prettier": true,
-		"semicolon": false,
-		"rules": {
-			"capitalized-comments": 0,
-			"ava/no-ignored-test-files": 0,
-			"require-array-sort-compare": 0,
-			"@typescript-eslint/consistent-type-assertions": 0,
-			"@typescript-eslint/no-confusing-void-expression": 0,
-			"react/jsx-no-constructed-context-values": 0
-		}
-	},
-	"nyc": {
-		"all": true,
-		"reporter": [
-			"lcov",
-			"text"
-		],
-		"extension": [
-			".ts",
-			".tsx"
-		],
-		"require": [
-			"ts-node/register"
-		],
-		"include": [
-			"src/**/*.ts",
-			"src/**/*.tsx"
+	"eslintConfig": {
+		"extends": "react-app",
+		"overrides": [
+			{
+				"files": [
+					"**/*.stories.*"
+				],
+				"rules": {
+					"import/no-anonymous-default-export": "off"
+				}
+			}
 		]
 	},
-	"ava": {
-		"extensions": [
-			"ts",
-			"tsx",
-			"js"
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
 		],
-		"require": [
-			"./test/setup.js",
-			"ts-node/register"
-		],
-		"files": [
-			"!test/setup.js",
-			"test/*.ts",
-			"test/**/*.ts",
-			"test/*.tsx",
-			"test/**/*.tsx"
-		],
-		"cache": true,
-		"concurrency": 5,
-		"failFast": true,
-		"verbose": true
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"dependencies": {
+		"@chakra-ui/react": "1.6.0",
+		"@emotion/react": "^11.0.0",
+		"@emotion/styled": "^11.0.0",
+		"@hookstate/core": "^3.0.7",
+		"framer-motion": "^4.0.0",
+		"ramda": "^0.27.1",
+		"react-icons": "^3.0.0",
+		"typescript": "^3.9.5",
+		"use-debounce": "^6.0.1",
+		"web-vitals": "^0.2.2"
+	},
+	"peerDependencies": {
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1"
+	},
+	"devDependencies": {
+		"@storybook/addon-actions": "^6.2.9",
+		"@storybook/addon-console": "^1.2.3",
+		"@storybook/addon-essentials": "^6.2.9",
+		"@storybook/addon-links": "^6.2.9",
+		"@storybook/node-logger": "^6.2.9",
+		"@storybook/preset-create-react-app": "^3.1.7",
+		"@storybook/react": "^6.2.9",
+		"@testing-library/jest-dom": "^5.9.0",
+		"@testing-library/react": "^10.2.1",
+		"@testing-library/user-event": "^12.0.2",
+		"@types/jest": "^25.0.0",
+		"@types/node": "^12.0.0",
+		"@types/ramda": "^0.27.40",
+		"@types/react": "^16.0.0",
+		"@types/react-dom": "^16.0.0",
+		"microbundle": "^0.13.1",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"react-scripts": "4.0.3"
 	}
 }

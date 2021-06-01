@@ -16,12 +16,12 @@
 JsonSchemaEditor is a React component library that allows the easy generation of valid `Draft 07` JsonSchema from a UI,  so that it can be easily persisted in a schema management system.
 
 Benefits include:
+
 - Describes your existing data format(s).
 - Provides clear human- and machine- readable - documentation.
 - Validates data which is useful for:
-   - Automated testing.
-   - Ensuring quality of client submitted data.
-
+  - Automated testing.
+  - Ensuring quality of client submitted data.
 
 ## Documentation
 
@@ -46,30 +46,30 @@ yarn add @optum/json-schema-editor
 | data           | object                             | the initial data for the editor              | {}                    |
 | readOnly       | boolean                            | make editor read only                        | false                 |
 | onSchemaChange | callback (results: string) => void | callback method to capture changes to schema | required (no default) |
-| schemaRoot        | string                             | schemaRoot for \$id property                    | required (no default) |
 
 ## Example
 
 ```js
-import JsonSchemaEditor from "@optum/jsonschema-editor-react";
+import JsonSchemaEditor from "@optum/json-schema-editor";
 
-// render with function component
-export const Home = ({ data, contentSectionText }) => {
-    const printResult = (result: string) => {
-        console.log(result);
-    };
-
-    return (
-        <div className="container">
-            <JsonSchemaEditor data={titleBarText} printResult={printResult} />
-        </div>
-    );
+export const printIt = (schema) => {
+  console.log(schema);
 };
+
+function App() {
+  return (
+    <div className="App">
+      <JsonSchemaEditor onSchemaChange={printIt} />
+    </div>
+  );
+}
+
+export default App;
 ```
 
 ## License
 
-jsonchema-editor-react is Copyright © 2020 Optum. It is free software and may be redistributed under the MIT license.
+jsonchema-editor-react is Copyright © 2021 Optum. It is free software and may be redistributed under the Apache 2.0 license.
 
 ## Development
 
@@ -87,11 +87,14 @@ npm run storybook
 npm run build-storybook
 ```
 
-### Commands
+> Run tests locally
 
-| Name            |                 Description                  |
-| :-------------- | :------------------------------------------: |
-| build           | build production ready component for package |
-| test            |              execute all tests               |
-| storybook       |            run storybook locally             |
-| build-storybook |  build static storybook output in `./docs`   |
+```shell
+npm test
+```
+
+> Build dist
+
+```shell
+npm run build
+```
