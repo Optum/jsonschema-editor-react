@@ -1,6 +1,4 @@
 {
-	"xo.enable": true,
-	"xo.format.enable": true,
 	"javascript.format.enable": false,
 	"javascript.validate.enable": false,
 	"prettier.tabWidth": 4,
@@ -11,14 +9,14 @@
 	},
 	"[javascript]": {
 		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "samverschueren.linter-xo"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[typescript]": {
 		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "samverschueren.linter-xo"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[typescriptreact]": {
 		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "samverschueren.linter-xo"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	}
 }
