@@ -1,13 +1,13 @@
 {
 	"name": "@optum/json-schema-editor",
-	"version": "2.0.1",
+	"version": "2.0.3",
 	"description": "JsonSchema Editor React Control",
 	"repository": "https://github.com/optum/jsonschema-editor-react",
 	"license": "Apache 2.0",
 	"engines": {
 		"node": ">=10.18.0 <11 || >=12.14.0 <13 || >=13.5.0"
 	},
-	"source": "src/JsonSchemaEditor/index.ts",
+	"source": "src/index.ts",
 	"publishConfig": {
 		"access": "public",
 		"registry": "https://registry.npmjs.org"

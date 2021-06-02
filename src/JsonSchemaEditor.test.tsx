@@ -1,38 +1,38 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import JsonSchemaEditor from "./JsonSchemaEditor";
-import { SchemaEditorProps } from "./JsonSchemaEditor/JsonSchemaEditor.types";
+import JsonSchemaEditor from ".";
+import { SchemaEditorProps } from "./JsonSchemaEditor.types";
 
 const printIt = (schema: string) => {
-  console.log(schema);
+	console.log(schema);
 };
 
 describe("JsonSchemaEditor", () => {
-  let props: SchemaEditorProps;
+	let props: SchemaEditorProps;
 
-  beforeEach(() => {
-    props = {
-      onSchemaChange: printIt,
-    };
-  });
+	beforeEach(() => {
+		props = {
+			onSchemaChange: printIt,
+		};
+	});
 
-  const renderComponent = () => render(<JsonSchemaEditor {...props} />);
+	const renderComponent = () => render(<JsonSchemaEditor {...props} />);
 
-  it("should have primary className with default props", () => {
-    renderComponent();
+	it("should have primary className with default props", () => {
+		renderComponent();
 
-    const { container } = renderComponent();
+		const { container } = renderComponent();
 
-    // const testComponent = getByTestId("jsonschema-editor");
-    console.log(container.innerHTML);
+		// const testComponent = getByTestId("jsonschema-editor");
+		console.log(container.innerHTML);
 
-    // expect(testComponent).toHaveClass("test-component-primary");
+		// expect(testComponent).toHaveClass("test-component-primary");
 
-    // console.log(result.asFragment.toString);
-    // // expect(screen.getByText("root")).toBeInTheDocument();
-    // expect(true).toBe(true);
-  });
+		// console.log(result.asFragment.toString);
+		// // expect(screen.getByText("root")).toBeInTheDocument();
+		// expect(true).toBe(true);
+	});
 });
 
 // test("renders learn react link", () => {
