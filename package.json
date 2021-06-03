@@ -1,6 +1,6 @@
 {
 	"name": "@optum/json-schema-editor",
-	"version": "2.0.3",
+	"version": "2.1.0",
 	"description": "JsonSchema Editor React Control",
 	"repository": "https://github.com/optum/jsonschema-editor-react",
 	"license": "Apache 2.0",
@@ -24,7 +24,7 @@
 		"build": "microbundle --jsx React.createElement",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"storybook": "start-storybook -p 6006 -s docs",
+		"storybook": "rimraf docs && start-storybook -p 6006 -s docs",
 		"build-storybook": "rimraf docs && build-storybook --docs -o docs"
 	},
 	"eslintConfig": {
