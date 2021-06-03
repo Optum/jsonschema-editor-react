@@ -39,14 +39,16 @@ export const SchemaObject: React.FunctionComponent<SchemaObjectProps> = (
 		localState.isAdvancedOpen.set(false);
 	};
 
-	const showadvanced = (item: State<JSONSchema7>): void => {
+	const showadvanced = (item: string): void => {
 		localState.isAdvancedOpen.set(true);
+		localState.item.set(item);
 	};
 
 	const focusRef = React.createRef<HTMLElement>();
 
 	const localState = useState({
 		isAdvancedOpen: false,
+		item: "",
 	});
 
 	if (!propertiesOrNull) {
@@ -56,55 +58,53 @@ export const SchemaObject: React.FunctionComponent<SchemaObjectProps> = (
 			<div className="object-style">
 				{propertiesOrNull?.keys?.map((name) => {
 					return (
-						<>
-							<SchemaItem
-								key={String(name)}
-								itemStateProp={
-									propertiesOrNull.nested(name as string) as State<JSONSchema7>
-								}
-								parentStateProp={schema}
-								name={name as string}
-								showadvanced={showadvanced}
-								required={schema.required.value as string[]}
-								isReadOnly={isReadOnlyState}
-							/>
-							<Modal
-								isOpen={localState.isAdvancedOpen.get()}
-								finalFocusRef={focusRef}
-								size="lg"
-								onClose={onCloseAdvanced}
-							>
-								<ModalOverlay />
-								<ModalContent>
-									<ModalHeader textAlign="center">
-										Advanced Schema Settings
-									</ModalHeader>
-
-									<ModalBody>
-										<AdvancedSettings
-											itemStateProp={
-												propertiesOrNull.nested(
-													name as string
-												) as State<JSONSchema7>
-											}
-										/>
-									</ModalBody>
-
-									<ModalFooter>
-										<Button
-											colorScheme="blue"
-											variant="ghost"
-											mr={3}
-											onClick={onCloseAdvanced}
-										>
-											Close
-										</Button>
-									</ModalFooter>
-								</ModalContent>
-							</Modal>
-						</>
+						<SchemaItem
+							key={String(name)}
+							itemStateProp={
+								propertiesOrNull.nested(name as string) as State<JSONSchema7>
+							}
+							parentStateProp={schema}
+							name={name as string}
+							showadvanced={showadvanced}
+							required={schema.required.value as string[]}
+							isReadOnly={isReadOnlyState}
+						/>
 					);
 				})}
+				<Modal
+					isOpen={localState.isAdvancedOpen.get()}
+					finalFocusRef={focusRef}
+					size="lg"
+					onClose={onCloseAdvanced}
+				>
+					<ModalOverlay />
+					<ModalContent>
+						<ModalHeader textAlign="center">
+							Advanced Schema Settings
+						</ModalHeader>
+
+						<ModalBody>
+							<AdvancedSettings
+								itemStateProp={
+									propertiesOrNull.nested(
+										localState.item.value as string
+									) as State<JSONSchema7>
+								}
+							/>
+						</ModalBody>
+
+						<ModalFooter>
+							<Button
+								colorScheme="blue"
+								variant="ghost"
+								mr={3}
+								onClick={onCloseAdvanced}
+							>
+								Close
+							</Button>
+						</ModalFooter>
+					</ModalContent>
+				</Modal>
 			</div>
 		);
 	}

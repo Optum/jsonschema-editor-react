@@ -37,7 +37,7 @@ export interface SchemaItemProps extends FlexProps {
 	parentStateProp: State<JSONSchema7>;
 	name: string;
 	isReadOnly: State<boolean>;
-	showadvanced: (item: State<JSONSchema7>) => void;
+	showadvanced: (item: string) => void;
 }
 
 export const SchemaItem: React.FunctionComponent<SchemaItemProps> = (
@@ -214,7 +214,7 @@ export const SchemaItem: React.FunctionComponent<SchemaItemProps> = (
 							icon={<FiSettings />}
 							aria-label="Advanced Settings"
 							onClick={() => {
-								showadvanced(itemState);
+								showadvanced(name);
 							}}
 						/>
 					</Tooltip>
