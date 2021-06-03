@@ -47,7 +47,7 @@ yarn add @optum/json-schema-editor
 | readOnly       | boolean                            | make editor read only                        | false                 |
 | onSchemaChange | callback (results: string) => void | callback method to capture changes to schema | required (no default) |
 
-## Example
+## Usage
 
 ```js
 import JsonSchemaEditor from "@optum/json-schema-editor";

@@ -86,6 +86,7 @@ export const AdvancedString: React.FunctionComponent<AdvancedItemStateProps> = (
 				<FormLabel mr={2}>Max Length: </FormLabel>
 				<NumberInput
 					size="sm"
+					defaultValue={Number(itemState.maxLength.value)}
 					onChange={(value: number | string) => {
 						itemState.maxLength.set(Number(value));
 					}}

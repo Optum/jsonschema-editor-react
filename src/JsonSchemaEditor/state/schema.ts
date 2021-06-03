@@ -15,20 +15,6 @@ export const defaultSchema = (): JSONSchema7 => {
 	};
 };
 
-const countKeys = (object: any): number => {
-	if (typeof object !== "object" || object === null) {
-		return 0;
-	}
-
-	const keys = Object.keys(object);
-	let sum = keys.length;
-	for (const key of keys) {
-		sum += countKeys(object[key]);
-	}
-
-	return sum;
-};
-
 const isValidSchema = (schema: JSONSchema7): boolean => {
 	const isValid = ajv.validateSchema(schema);
 	return isValid;
